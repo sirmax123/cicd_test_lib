@@ -15,7 +15,7 @@ class Utilities {
 //  }
 
 
-  def buildName(currentBuild) {
+  def buildName(currentBuild, env) {
     println("set name")
         try {
       upstreamBuildName =  currentBuild.rawBuild.getCause(hudson.model.Cause$UpstreamCause).properties.upstreamProject
