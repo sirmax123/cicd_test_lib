@@ -17,30 +17,30 @@ class Utilities {
 
   def buildName() {
     println("set name")
-//    try {
-//      upstreamBuildName =  currentBuild.rawBuild.getCause(hudson.model.Cause$UpstreamCause).properties.upstreamProject
-//      upstreamBuildNumber =  currentBuild.rawBuild.getCause(hudson.model.Cause$UpstreamCause).properties.upstreamBuild
-//      println(upstreamBuildName)
-//      println(upstreamBuildNumber)
-//        
-//      currentBuild.displayName = "${env.BUILD_NUMBER}-UpstreamJob=${upstreamBuildName}-UpstreamBuildNumber=${upstreamBuildNumber}"
-//      currentBuild.description = currentBuild.displayName
-//    }
-//    catch (java.lang.NullPointerException e) {
-//      println("No upstream job found")    
-//    }
-//
-//
-//
-//    try {
-////      specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause).properties
-//      println(specificCause.userId)
-//      currentBuild.displayName = "${env.BUILD_NUMBER}-startedBy: ${specificCause.userId}"
-//      currentBuild.description = "${env.BUILD_NUMBER}-startedBy: ${specificCause.userId}"
-//    }     
-//    catch (java.lang.NullPointerException e) {
-//      println("No user found")
-//    }
+        try {
+      upstreamBuildName =  currentBuild.rawBuild.getCause(hudson.model.Cause$UpstreamCause).properties.upstreamProject
+      upstreamBuildNumber =  currentBuild.rawBuild.getCause(hudson.model.Cause$UpstreamCause).properties.upstreamBuild
+      println(upstreamBuildName)
+      println(upstreamBuildNumber)
+        
+      currentBuild.displayName = "${env.BUILD_NUMBER}-UpstreamJob=${upstreamBuildName}-UpstreamBuildNumber=${upstreamBuildNumber}"
+      currentBuild.description = currentBuild.displayName
+    }
+    catch (java.lang.NullPointerException e) {
+      println("No upstream job found")    
+    }
+
+
+
+    try {
+      specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause).properties
+      println(specificCause.userId)
+      currentBuild.displayName = "${env.BUILD_NUMBER}-startedBy: ${specificCause.userId}"
+      currentBuild.description = "${env.BUILD_NUMBER}-startedBy: ${specificCause.userId}"
+    }     
+    catch (java.lang.NullPointerException e) {
+      println("No user found")
+    }
   }
 
 }
