@@ -33,7 +33,7 @@ class Utilities {
 
 
     try {
-      specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause).properties
+      def specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause).properties
       println(specificCause.userId)
       currentBuild.displayName = "${env.BUILD_NUMBER}-startedBy: ${specificCause.userId}"
       currentBuild.description = "${env.BUILD_NUMBER}-startedBy: ${specificCause.userId}"
